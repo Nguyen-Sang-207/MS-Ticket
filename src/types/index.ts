@@ -129,6 +129,8 @@ export interface Showtime {
   availableSeats?: number;
   bookedSeats?: number;
   isAvailable?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 // ==================== BOOKING ====================
