@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MS Ticket - Cinema Ticketing Platform
 
-## Getting Started
+MS Ticket là một ứng dụng đặt vé xem phim hiện đại, tập trung vào trải nghiệm người dùng trên thiết bị di động (mobile-first) với thiết kế cao cấp và hiệu năng tối ưu. Dự án được phát triển bằng Next.js 16 và tích hợp hệ thống Firebase.
 
-First, run the development server:
+## 🌟 Tính năng nổi bật
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 📱 Trải nghiệm Người dùng (Client)
+- **Thiết kế Mobile-First**: Giao diện responsive hoàn hảo, mượt mà trên mọi thiết bị.
+- **Hero Carousel**: Banner phim nổi bật với hiệu ứng chuyển cảnh Cinematic.
+- **Đặt vé thông minh**: Quy trình chọn ghế (Seat Map) trực quan, hỗ trợ khóa ghế thời gian thực qua Firebase RTDB.
+- **E-Ticket**: Hệ thống vé điện tử với mã QR, tích hợp lưu trữ lịch sử đặt vé trong hồ sơ cá nhân.
+- **Tìm kiếm & Lọc**: Tìm kiếm phim nhanh chóng, lọc lịch chiếu theo ngày và rạp.
+- **Sandbox Mode**: Chế độ khách cho phép trải nghiệm đầy đủ tính năng admin/đặt vé mà không ảnh hưởng đến database thật (lưu trữ local).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🛠 Quản trị (Admin Dashboard)
+- **Quản lý Phim**: Import dữ liệu phim tự động từ TMDB API.
+- **Quản lý Suất chiếu**: Giao diện quản lý suất chiếu chuyên nghiệp, hỗ trợ lọc và sắp xếp thông minh.
+- **Quản lý Rạp & Phòng**: Hệ thống quản lý đa rạp, đa phòng chiếu.
+- **Thống kê**: Theo dõi số lượng vé và doanh thu (đang phát triển).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Công nghệ sử dụng
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/) với Turbopack.
+- **Ngôn ngữ**: [TypeScript](https://www.typescriptlang.org/) (Strict type checking).
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [Lucide React](https://lucide.dev/) icons.
+- **Backend**: [Firebase](https://firebase.google.com/) (Authentication, Firestore, Realtime Database, Admin SDK).
+- **Hình ảnh**: [Cloudinary](https://cloudinary.com/) API.
+- **Email**: [Resend](https://resend.com/).
+- **Dữ liệu phim**: [TMDB API](https://www.themoviedb.org/documentation/api).
+- **Deployment**: [Vercel](https://vercel.com/).
 
-## Learn More
+## 🛠 Hướng dẫn cài đặt
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone repository**:
+   ```bash
+   git clone https://github.com/Nguyen-Sang-207/MS-Ticket.git
+   cd MS-Ticket
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Cài đặt dependencies**:
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Cấu hình biến môi trường**:
+   Tạo file `.env.local` tại thư mục gốc và cấu hình các thông số sau:
+   - Firebase Client & Admin SDK Keys
+   - Cloudinary Credentials
+   - Resend API Key
+   - TMDB API Key
 
-## Deploy on Vercel
+4. **Chạy ứng dụng ở chế độ development**:
+   ```bash
+   npm run dev
+   ```
+   Mở [http://localhost:3000](http://localhost:3000) trên trình duyệt.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Triển khai (Deployment)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Dự án được tối ưu hóa để triển khai trên **Vercel**. 
+*Lưu ý*: Khi deploy, hãy đảm bảo đã thêm đầy đủ các biến môi trường trong phần **Project Settings > Environment Variables** và cấp quyền (Whitelist) cho domain của bạn trong **Firebase Console > Authentication > Settings**.
+
+## 📝 Giấy phép
+
+Dự án được phát triển bởi **Nguyen-Sang-207**.
+
+---
+*Tự hào được xây dựng với mục tiêu mang lại trải nghiệm xem phim tốt nhất cho người Việt.*
