@@ -164,10 +164,10 @@ export default function AdminShowtimes() {
       .then(r => r.json())
       .then(async d => {
         const { sandboxMerge } = await import('@/lib/sandboxStore');
-        const merged = sandboxMerge('showtimes', d.data || []);
+        const merged = sandboxMerge('showtimes', d.data || []) as Showtime[];
         // Dedup: after rolling schedule shift, multiple seed weeks can map to same current date.
         // Keep the LATEST version (by createdAt) for each unique slot.
-        const seen = new Map<string, any>();
+        const seen = new Map<string, Showtime>();
         for (const s of merged) {
           const key = `${s.movieId}|${s.theaterId}|${s.roomId}|${s.date}|${s.startTime}`;
           const existing = seen.get(key);
