@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
@@ -12,6 +12,7 @@ interface Booking {
   id: string; movieNameVn: string; theaterName: string; roomName: string;
   date: string; startTime: string; seats: any[];
   totalAmount: number; qrCode: string; status: string;
+  movieFormat?: string; movieTime?: number; format?: string; time?: number;
 }
 
 const RANKS = [

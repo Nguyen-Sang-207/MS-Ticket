@@ -27,7 +27,7 @@ const generateMockSeats = (): Seat[] => {
   return seats;
 };
 
-interface MovieDetail { id: string; nameVn: string; image: string; ratings: string; time: number; format: string; }
+interface MovieDetail { id: string; nameVn: string; nameEn?: string; image: string; ratings: string; time: number; format: string; }
 interface Theater { id: string; nameEn: string; nameVn: string; }
 interface Showtime { id: string; startTime: string; roomName: string; }
 interface Seat { id: string; seatNumber: string; seatType?: string; price: number; status: string; }
@@ -125,7 +125,7 @@ function BookingFlow({ id }: { id: string }) {
       .then(res => res.json())
       .then(async data => {
         const { sandboxMerge } = await import('@/lib/sandboxStore');
-        const sList = sandboxMerge('showtimes', data.data || []);
+        const sList = sandboxMerge<Showtime>('showtimes', data.data as Showtime[] || []);
         setShowtimes(sList);
         const preTime = searchParams.get('showtime');
         if (preTime) {
