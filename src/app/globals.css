@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #f8fafc;
+  --color-primary: #3b82f6;   /* blue-500 */
+  --color-secondary: #60a5fa; /* blue-400 */
+  --color-accent: #2563eb;    /* blue-600 */
+  --color-background: #09090b;
+  --color-text: #f8fafc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: inherit;
+}
+
+/* Hide scrollbars globally while keeping scroll functionality */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Custom scrollbar for horizontal scrolling elements */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  display: block;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #3f3f46;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #52525b;
+}
+
+/* ===== MOBILE / iOS OPTIMIZATIONS ===== */
+
+/* Prevent tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Full-height fix for iOS (100vh bug) */
+.h-screen-safe {
+  height: 100dvh;
+}
+
+/* iOS safe area support for bottom nav */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Smooth momentum scrolling on iOS */
+.scroll-smooth-ios {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Better touch targets */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Override for inline text links */
+  p a, li a {
+    display: inline;
+    min-height: unset;
+  }
+}
